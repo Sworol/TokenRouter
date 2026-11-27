@@ -10,6 +10,7 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"github.com/TokenFlux/TokenRouter/internal/billing"
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/pkg/apperror"
 )
 
@@ -477,8 +478,8 @@ func TestBuildPaymentSubjectAppliesAffixToSubscriptionPlanDefaultName(t *testing
 	plan := &billing.SubscriptionPlan{Name: "Team Monthly"}
 
 	got := svc.BuildPaymentSubject(plan, 0, cfg, nil)
-	if got != "PRE TokenRouter Subscription Team Monthly SUF" {
-		t.Fatalf("buildPaymentSubject() = %q, want %q", got, "PRE TokenRouter Subscription Team Monthly SUF")
+	if got != "PRE "+brand.Name+" Subscription Team Monthly SUF" {
+		t.Fatalf("buildPaymentSubject() = %q, want %q", got, "PRE "+brand.Name+" Subscription Team Monthly SUF")
 	}
 }
 

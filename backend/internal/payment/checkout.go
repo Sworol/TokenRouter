@@ -13,6 +13,7 @@ import (
 
 	"github.com/shopspring/decimal"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	infraerrors "github.com/TokenFlux/TokenRouter/internal/pkg/apperror"
 	"github.com/TokenFlux/TokenRouter/internal/pkg/locale"
 )
@@ -644,9 +645,9 @@ func PaymentSubject(plan *SubscriptionPlan, limitAmount float64, cfg *PaymentCon
 		// Combine the supplied plan name with the selected display-language label
 		// before configured affixes are applied.
 		if productName == "" {
-			productName = "TokenRouter Subscription " + plan.Name
+			productName = brand.Name + " Subscription " + plan.Name
 			if locale.Normalize(language) == "zh-Hans" {
-				productName = "TokenRouter 订阅 " + plan.Name
+				productName = brand.Name + " 订阅 " + plan.Name
 			}
 		}
 		return ApplyPaymentProductNameAffix(productName, cfg)
@@ -659,7 +660,7 @@ func PaymentSubject(plan *SubscriptionPlan, limitAmount float64, cfg *PaymentCon
 	if HasPaymentProductNameAffix(cfg) {
 		return ApplyPaymentProductNameAffix(amountStr, cfg)
 	}
-	return "TokenRouter " + amountStr + " " + currency
+	return brand.Name + " " + amountStr + " " + currency
 }
 
 // HasPaymentProductNameAffix reports whether nonnil configuration has a

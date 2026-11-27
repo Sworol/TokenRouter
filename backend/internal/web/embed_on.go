@@ -22,6 +22,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/pkg/locale"
 	"github.com/TokenFlux/TokenRouter/internal/server/middleware"
 )
@@ -402,7 +403,7 @@ func injectSiteTitle(html, settingsJSON []byte) []byte {
 
 	// The setting is text inside title, so escape it before rebuilding that element.
 	// The prefix and suffix writes retain the remaining markup around the selected title.
-	newTitle := []byte("<title>" + htmlpkg.EscapeString(cfg.SiteName) + " - AI API Gateway</title>")
+	newTitle := []byte("<title>" + htmlpkg.EscapeString(cfg.SiteName) + " - " + brand.TitleSuffix + "</title>")
 	// bytes.Buffer.Write returns a nil error for these in-memory copies. Compose
 	// the replacement and retained page segments while discarding those unused write results.
 	var buf bytes.Buffer

@@ -9,6 +9,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	infraerrors "github.com/TokenFlux/TokenRouter/internal/pkg/apperror"
 )
 
@@ -66,7 +67,7 @@ func (s *AuthService) SendPendingOAuthVerifyCode(ctx context.Context, email stri
 		return nil, err
 	}
 
-	siteName := "TokenRouter"
+	siteName := brand.Name
 	if s.Settings != nil {
 		siteName = s.Settings.GetSiteName(ctx)
 	}

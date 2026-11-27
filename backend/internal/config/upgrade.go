@@ -13,6 +13,8 @@ import (
 	"time"
 
 	"gopkg.in/yaml.v3"
+
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 )
 
 // upgrade.go owns configuration version transitions and durable file replacement.
@@ -194,7 +196,7 @@ func prepareConfigUpgrade(path string, exists bool, env upgradeEnvironment) ([]b
 	if version < CurrentConfigVersion {
 		root := doc.Content[0]
 		removeConfigPath(root, "config_version")
-		key := &yaml.Node{Kind: yaml.ScalarNode, Tag: "!!str", Value: "config_version", HeadComment: "Managed by TokenRouter; see docs/interfaces/configuration.md before editing config_version."}
+		key := &yaml.Node{Kind: yaml.ScalarNode, Tag: "!!str", Value: "config_version", HeadComment: "Managed by " + brand.Name + "; see docs/interfaces/configuration.md before editing config_version."}
 		root.Content = append([]*yaml.Node{key, configValueNode(CurrentConfigVersion)}, root.Content...)
 	}
 	return raw, doc, version, report, nil
@@ -250,7 +252,7 @@ func parseConfigDocument(raw []byte, path string) (*yaml.Node, int, error) {
 		version = parsed
 	}
 	if version > CurrentConfigVersion {
-		return nil, 0, fmt.Errorf("config_version %d in %s is newer than this binary supports (%d); restore %s.v%d.bak or upgrade TokenRouter", version, path, CurrentConfigVersion, path, version-1)
+		return nil, 0, fmt.Errorf("config_version %d in %s is newer than this binary supports (%d); restore %s.v%d.bak or upgrade %s", version, path, CurrentConfigVersion, path, version-1, brand.Name)
 	}
 	return &doc, version, nil
 }

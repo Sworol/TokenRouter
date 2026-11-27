@@ -13,6 +13,7 @@ import (
 	"github.com/stripe/stripe-go/v85"
 	"github.com/stripe/stripe-go/v85/webhook"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/payment"
 )
 
@@ -297,7 +298,7 @@ func buildStripeCheckoutPaymentIntentDataParams(req payment.CreatePaymentRequest
 func buildStripeCheckoutLineItems(req payment.CreatePaymentRequest, amountInMinorUnit int64, currency string) []*stripe.CheckoutSessionCreateLineItemParams {
 	productName := strings.TrimSpace(req.Subject)
 	if productName == "" {
-		productName = "TokenRouter payment"
+		productName = brand.Name + " payment"
 	}
 	return []*stripe.CheckoutSessionCreateLineItemParams{{
 		Quantity: stripe.Int64(1),

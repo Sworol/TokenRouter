@@ -9,6 +9,7 @@ import {
   type ReleaseInfo,
 } from '@/api/admin/system'
 import { getPublicSettings as fetchPublicSettingsAPI } from '@/api/auth'
+import { BRAND } from '@/constants/brand'
 
 // app.ts manages shared layout state, toast notifications, release information, and
 // public site settings. Loading uses a reference count so overlapping operations can
@@ -38,7 +39,7 @@ export const useAppStore = defineStore('app', () => {
   // callers.
   const publicSettingsLoaded = ref<boolean>(false)
   const publicSettingsLoading = ref<boolean>(false)
-  const defaultSiteName = ref<string>('TokenRouter')
+  const defaultSiteName = ref<string>(BRAND.name)
   const siteLogo = ref<string>('')
   const siteVersion = ref<string>('')
   const contactInfo = ref<string>('')
@@ -68,7 +69,7 @@ export const useAppStore = defineStore('app', () => {
     () => cachedPublicSettings.value?.backend_mode_enabled ?? false,
   )
   const siteName = computed(
-    () => cachedPublicSettings.value?.site_name || defaultSiteName.value || 'TokenRouter',
+    () => cachedPublicSettings.value?.site_name || defaultSiteName.value || BRAND.name,
   )
 
   // loadingCount records outstanding loading contributions; reset clears it and ordinary
@@ -286,7 +287,7 @@ export const useAppStore = defineStore('app', () => {
       window.__APP_CONFIG__ = { ...config }
     }
     cachedPublicSettings.value = config
-    defaultSiteName.value = config.site_name || 'TokenRouter'
+    defaultSiteName.value = config.site_name || BRAND.name
     siteLogo.value = config.site_logo || ''
     siteVersion.value = config.version || ''
     contactInfo.value = config.contact_info || ''

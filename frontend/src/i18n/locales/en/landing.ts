@@ -252,8 +252,8 @@ export default {
   },
   // Setup Wizard
   setup: {
-    title: 'TokenRouter Setup',
-    description: 'Configure your TokenRouter instance',
+    title: 'AI Relay Setup',
+    description: 'Configure your AI Relay instance',
     database: {
       title: 'Database Configuration',
       description: 'Connect to your PostgreSQL database',

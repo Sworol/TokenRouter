@@ -27,6 +27,7 @@ import (
 	"golang.org/x/sync/singleflight"
 
 	"github.com/TokenFlux/TokenRouter/internal/billing"
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/identity/authconfig"
 	infraerrors "github.com/TokenFlux/TokenRouter/internal/pkg/apperror"
 	"github.com/TokenFlux/TokenRouter/internal/pkg/locale"
@@ -1676,7 +1677,7 @@ func (s *UserService) ToggleNotifyEmail(ctx context.Context, userID int64, email
 // uses TokenRouter; email, code and locale are passed to the configured sender
 // as supplied.
 func (s *UserService) SendNotifyVerifyEmail(ctx context.Context, sender NotifyVerificationSender, userID int64, email, code, locale string) error {
-	siteName := "TokenRouter"
+	siteName := brand.Name
 	// Branding falls back to the built-in site name when the optional reader
 	// has no nonempty value, keeping the prepared verification notice renderable.
 	if s.settingRepo != nil {

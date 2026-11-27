@@ -350,11 +350,11 @@ export default {
       },
       grok: {
         description:
-          'Configure Grok Build, Claude Code, Codex, or OpenCode to send requests through your TokenRouter Grok group.',
+          'Configure Grok Build, Claude Code, Codex, or OpenCode to send requests through your AI Relay Grok group.',
         claudeDescription:
-          'Configure Claude Code to send Messages API traffic through your TokenRouter Grok group.',
+          'Configure Claude Code to send Messages API traffic through your AI Relay Grok group.',
         codexDescription:
-          'Configure Codex to send Responses API traffic through your TokenRouter Grok group.',
+          'Configure Codex to send Responses API traffic through your AI Relay Grok group.',
         configTomlHint:
           'Back up an existing config.toml before merging this model entry. Run grok inspect after saving to verify the effective configuration.',
         codexConfigTomlHint:

@@ -672,6 +672,7 @@ import Icon from '@/components/icons/Icon.vue'
 import { Z_INDEX } from '@/constants/overlay'
 import { vSegmented } from '@/directives/segmented'
 import { sanitizeUrl } from '@/utils/url'
+import { BRAND } from '@/constants/brand'
 
 // VersionBadge.vue exposes version discovery, in-app changelog inspection,
 // update, rollback, and restart controls to administrators. Shared application
@@ -689,9 +690,9 @@ import { sanitizeUrl } from '@/utils/url'
 
 // Release repository and container image coordinates build the manual rollback
 // commands shown for the selected version.
-const GITHUB_REPO = 'TokenFlux/TokenRouter'
+const GITHUB_REPO = BRAND.repositoryUrl.replace('https://github.com/', '')
 // Container release tags omit the v prefix that installer commands use for GitHub release tags.
-const DOCKER_IMAGE = 'ghcr.io/tokenflux/tokenrouter'
+const DOCKER_IMAGE = BRAND.dockerImage
 
 // The translation function supplies version status, action labels, and
 // installation command guidance in the active locale.

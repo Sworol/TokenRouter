@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import HelpTooltip from '@/components/common/HelpTooltip.vue'
+import { BRAND } from '@/constants/brand'
 
 // UpstreamRequestIdHeaderField.vue edits the response header name used for upstream
 // request identification. It displays relay examples for API-key providers and
@@ -50,7 +51,7 @@ const OFFICIAL_REQUEST_ID_HEADERS: Record<
 const examples = computed<HeaderExample[]>(() => {
   const items: HeaderExample[] = []
   if (props.type === 'apikey') {
-    items.push({ label: 'TokenRouter', header: 'X-TokenRouter-Request-ID' })
+    items.push({ label: BRAND.name, header: 'X-TokenRouter-Request-ID' })
     items.push({
       label: 'Sub2API',
       header: 'X-Client-Request-ID',

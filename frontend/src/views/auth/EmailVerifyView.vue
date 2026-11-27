@@ -186,6 +186,7 @@ import {
   oauthAffiliatePayload,
 } from '@/utils/oauthAffiliate'
 import type { PublicSettings } from '@/api/settings.types'
+import { BRAND } from '@/constants/brand'
 
 // EmailVerifyView.vue restores a registration draft and verifies its email before
 // completing signup. Ordinary registration and pending OAuth creation share the
@@ -479,10 +480,10 @@ onUnmounted(() => {
 })
 
 // resolveLocalizedSiteName returns the configured trimmed site name for success
-// messages. Missing or blank settings use TokenRouter, including the period before
+// messages. Missing or blank settings use BRAND.name, including the period before
 // the public-settings request has completed.
 function resolveLocalizedSiteName(settings: PublicSettings | null): string {
-  return settings?.site_name?.trim() || 'TokenRouter'
+  return settings?.site_name?.trim() || BRAND.name
 }
 
 // startCountdown replaces the resend timer with a countdown in seconds. The

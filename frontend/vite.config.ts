@@ -5,6 +5,7 @@ import { resolve } from 'path'
 // Native config loading requires source extensions; tsconfig.node.json rewrites
 // this extension so emitted JavaScript resolves the compiled metadata module.
 import { renderSocialMetadata } from './socialMetadata.ts'
+import { BRAND } from './src/constants/brand'
 
 // vite.config.ts configures development proxying and the browser assets embedded
 // in release builds. Development documents receive public settings and branding
@@ -58,7 +59,7 @@ function injectBranding(
   if (siteName) {
     brandedHtml = brandedHtml.replace(
       /<title>[^<]*<\/title>/i,
-      `<title>${escapeHtml(siteName)} - AI API Gateway</title>`,
+      `<title>${escapeHtml(siteName)} - ${BRAND.titleSuffix}</title>`,
     )
   }
 

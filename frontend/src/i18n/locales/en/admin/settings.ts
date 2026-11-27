@@ -188,10 +188,10 @@ export default {
       bstats: {
         title: 'bStats',
         description:
-          'Send basic runtime information to bStats to help understand TokenRouter adoption and version distribution and guide future improvements. Enabled by default; you can turn it off at any time.',
+          'Send basic runtime information to bStats to help understand AI Relay adoption and version distribution and guide future improvements. Enabled by default; you can turn it off at any time.',
         enabled: 'Enable bStats',
         dataHint:
-          'Reports a random instance ID, operating system and version, architecture, CPU core count, and TokenRouter and Go versions. bStats derives the country from the reporting connection. No accounts, API keys, prompts, requests, usage, or payment data are sent.',
+          'Reports a random instance ID, operating system and version, architecture, CPU core count, and AI Relay and Go versions. bStats derives the country from the reporting connection. No accounts, API keys, prompts, requests, usage, or payment data are sent.',
         viewStatistics: 'View public statistics',
         logErrors: 'Log reporting errors',
         logErrorsHint: 'Write failed reporting attempts to the server log. Disabled by default.',
@@ -446,7 +446,7 @@ export default {
     },
     linuxdo: {
       title: 'LinuxDo Connect Login',
-      description: 'Configure LinuxDo Connect OAuth for TokenRouter end-user login',
+      description: 'Configure LinuxDo Connect OAuth for AI Relay end-user login',
       enable: 'Enable LinuxDo Login',
       enableHint: 'Show LinuxDo login on the login/register pages',
       clientId: 'Client ID',
@@ -466,7 +466,7 @@ export default {
     },
     dingtalk: {
       title: 'DingTalk Login',
-      description: 'Configure DingTalk OAuth for TokenRouter end-user login',
+      description: 'Configure DingTalk OAuth for AI Relay end-user login',
       enable: 'Enable DingTalk Login (Internal Corporate App)',
       enableHint: 'Show DingTalk login on the login/register pages',
       clientId: 'Client ID (AppKey)',
@@ -856,7 +856,7 @@ export default {
       backendModeDescription:
         'Disables user registration, public site, and self-service features. Only admin can log in and manage the platform.',
       siteName: 'Site Name',
-      siteNamePlaceholder: 'TokenRouter',
+      siteNamePlaceholder: 'AI Relay',
       siteNameHint: 'Displayed in emails and page titles',
       siteSubtitle: 'Site Subtitle',
       siteSubtitlePlaceholder: 'Subscription to API Conversion Platform',
@@ -864,9 +864,9 @@ export default {
       siteCopyTitle: 'Site Copy',
       siteCopyDescription: 'Configure localized site name, site title, and site subtitle.',
       siteNameZh: 'Site Name (Chinese)',
-      siteNameZhPlaceholder: 'TokenRouter',
+      siteNameZhPlaceholder: 'AI Relay',
       siteNameEn: 'Site Name (English)',
-      siteNameEnPlaceholder: 'TokenRouter',
+      siteNameEnPlaceholder: 'AI Relay',
       siteTitleZh: 'Site Title (Chinese)',
       siteTitleZhPlaceholder: '统一的大模型接口',
       siteTitleEn: 'Site Title (English)',
@@ -1109,7 +1109,7 @@ export default {
       easypayMerchantOrderNoCompatibilityHint:
         'Enable only if the provider returns the merchant order number as the transaction number at checkout. The first payment confirmation uses the transaction number verified by an order lookup.',
       easypayCustomMethodsHint:
-        'Add provider-specific methods supported by this EasyPay endpoint. The payment type is stored on TokenRouter orders; the upstream type is sent as EasyPay type.',
+        'Add provider-specific methods supported by this EasyPay endpoint. The payment type is stored on AI Relay orders; the upstream type is sent as EasyPay type.',
       addCustomMethod: 'Add method',
       customMethodType: 'Payment type',
       customMethodUpstreamType: 'Upstream type',
@@ -1248,7 +1248,7 @@ export default {
       fromEmail: 'From Email',
       fromEmailPlaceholder: "noreply{'@'}example.com",
       fromName: 'From Name',
-      fromNamePlaceholder: 'TokenRouter',
+      fromNamePlaceholder: 'AI Relay',
       useTls: 'Use TLS',
       useTlsHint: 'Enable TLS encryption for SMTP connection',
     },
@@ -1471,7 +1471,7 @@ export default {
       scopeBedrock: 'Bedrock only',
       userIds: 'Specific users',
       userIdsHint:
-        'Type any part of a user email to search. Leave empty to apply to all TokenRouter users. Selected users match requests from their API keys and take precedence over global rules.',
+        'Type any part of a user email to search. Leave empty to apply to all AI Relay users. Selected users match requests from their API keys and take precedence over global rules.',
       userSearchPlaceholder: 'Search by user email',
       userSearchEmpty: 'No matching users found',
       userDeleted: '(deleted)',

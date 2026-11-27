@@ -1,6 +1,7 @@
 import { shallowMount, flushPromises, enableAutoUnmount } from '@vue/test-utils'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import VersionBadge from '../VersionBadge.vue'
+import { BRAND } from '@/constants/brand'
 
 // VersionBadge.rollback.spec.ts checks the commands an administrator receives
 // after selecting a historical release. Version discovery and all system actions
@@ -55,8 +56,7 @@ describe('VersionBadge rollback commands', () => {
       .findAll('button')
       .find((button) => button.text().includes('v1.2.2'))!
       .trigger('click')
-    const script =
-      'curl -sSL https://raw.githubusercontent.com/TokenFlux/TokenRouter/v1.2.2/deploy/install.sh | sudo bash -s -- rollback v1.2.2'
+    const script = `curl -sSL https://raw.githubusercontent.com/${BRAND.repositoryUrl.replace('https://github.com/', '')}/v1.2.2/deploy/install.sh | sudo bash -s -- rollback v1.2.2`
     expect(wrapper.get('code').text()).toBe(script)
     await wrapper
       .findAll('button')
@@ -67,8 +67,7 @@ describe('VersionBadge rollback commands', () => {
       .findAll('button')
       .find((button) => button.text() === 'version.deployDocker')!
       .trigger('click')
-    const docker =
-      '# version.dockerEditCompose\nimage: ghcr.io/tokenflux/tokenrouter:1.2.2\n\n# version.dockerRecreate\ndocker compose up -d'
+    const docker = `# version.dockerEditCompose\nimage: ${BRAND.dockerImage}:1.2.2\n\n# version.dockerRecreate\ndocker compose up -d`
     expect(wrapper.get('code').text()).toBe(docker)
     await wrapper
       .findAll('button')

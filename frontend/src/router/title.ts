@@ -1,4 +1,5 @@
 import { i18n } from '@/i18n'
+import { BRAND } from '@/constants/brand'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import type { CustomMenuItem } from '@/api/settings.types'
 import type { PluginUI } from '@/api/plugins.types'
@@ -11,14 +12,14 @@ import type { PluginUI } from '@/api/plugins.types'
 
 // resolveDocumentTitle combines a translated or literal route title with normalized site
 // branding. Missing translations use the literal title; blank site names use
-// TokenRouter, and missing titles return the site name alone.
+// the configured brand name, and missing titles return the site name alone.
 export function resolveDocumentTitle(
   routeTitle: unknown,
   siteName?: string,
   titleKey?: string,
 ): string {
   const normalizedSiteName =
-    typeof siteName === 'string' && siteName.trim() ? siteName.trim() : 'TokenRouter'
+    typeof siteName === 'string' && siteName.trim() ? siteName.trim() : BRAND.name
 
   if (typeof titleKey === 'string' && titleKey.trim()) {
     const translated = i18n.global.t(titleKey)

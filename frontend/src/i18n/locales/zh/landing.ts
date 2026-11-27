@@ -247,8 +247,8 @@ export default {
   },
   // Setup Wizard
   setup: {
-    title: 'TokenRouter 安装向导',
-    description: '配置您的 TokenRouter 实例',
+    title: 'AI Relay 安装向导',
+    description: '配置您的 AI Relay 实例',
     database: {
       title: '数据库配置',
       description: '连接到您的 PostgreSQL 数据库',

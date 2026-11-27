@@ -232,7 +232,7 @@
               <!-- Administrator actions expose the repository and guide replay. -->
               <div v-if="authStore.isAdmin" class="menu-section">
                 <a
-                  href="https://github.com/TokenFlux/TokenRouter"
+                  :href="BRAND.repositoryUrl"
                   target="_blank"
                   rel="noopener noreferrer"
                   @click="closeDropdown"
@@ -316,6 +316,7 @@ import LocaleSwitcher from '@/components/common/LocaleSwitcher.vue'
 import SubscriptionProgressMini from '@/components/common/SubscriptionProgressMini.vue'
 import AnnouncementBell from '@/components/announcements/AnnouncementBell.vue'
 import UserAvatar from '@/components/common/UserAvatar.vue'
+import { BRAND } from '@/constants/brand'
 import HeaderContactSupport from '@/components/layout/HeaderContactSupport.vue'
 import GlobalSearchTrigger from '@/components/layout/search/GlobalSearchTrigger.vue'
 import Icon from '@/components/icons/Icon.vue'

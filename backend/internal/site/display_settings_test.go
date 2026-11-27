@@ -6,6 +6,8 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/require"
+
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 )
 
 // displayValues records queried keys to check on-demand reads and configuration defaults.
@@ -34,10 +36,10 @@ func TestDisplaySettingsPreserveNameAndMenuValues(t *testing.T) {
 		wantName string // expected branding text
 		wantMenu string // expected raw menu
 	}{
-		{name: "empty", wantName: "TokenRouter"},
+		{name: "empty", wantName: brand.Name},
 		{name: "whitespace", value: "  ", wantName: "  ", wantMenu: "  "},
 		{name: "stored", value: "display", wantName: "display", wantMenu: "display"},
-		{name: "read failure", value: "ignored", err: errors.New("read failed"), wantName: "TokenRouter", wantMenu: "[]"},
+		{name: "read failure", value: "ignored", err: errors.New("read failed"), wantName: brand.Name, wantMenu: "[]"},
 	} {
 		t.Run(tc.name, func(t *testing.T) {
 			repo := &displayValues{values: map[string]string{SettingKeySiteName: tc.value, SettingKeyCustomMenuItems: tc.value}, err: tc.err}

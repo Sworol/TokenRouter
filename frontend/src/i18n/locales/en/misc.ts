@@ -309,16 +309,16 @@ export default {
     // Admin tour steps
     admin: {
       welcome: {
-        title: 'Welcome to TokenRouter',
+        title: 'Welcome to AI Relay',
         description:
-          '<div style="line-height: 1.8;"><p style="margin-bottom: 16px;">TokenRouter routes AI requests through connected providers and manages API keys, billing, and quotas.</p><p style="margin-bottom: 12px;"><b>Core Features:</b></p><ul style="margin-left: 20px; margin-bottom: 16px;"><li><b>Group Management</b> - Create service tiers (VIP, Free Trial, etc.)</li><li><b>Provider Pool</b> - Connect multiple upstream AI providers</li><li><b>Key Distribution</b> - Generate independent API Keys for users</li><li><b>Billing Control</b> - Flexible rate and quota management</li></ul><p style="color: var(--tour-action-color); font-weight: 600;">Start by creating a group, connecting a provider, and generating an API key.</p></div>',
+          '<div style="line-height: 1.8;"><p style="margin-bottom: 16px;">AI Relay routes AI requests through connected providers and manages API keys, billing, and quotas.</p><p style="margin-bottom: 12px;"><b>Core Features:</b></p><ul style="margin-left: 20px; margin-bottom: 16px;"><li><b>Group Management</b> - Create service tiers (VIP, Free Trial, etc.)</li><li><b>Provider Pool</b> - Connect multiple upstream AI providers</li><li><b>Key Distribution</b> - Generate independent API Keys for users</li><li><b>Billing Control</b> - Flexible rate and quota management</li></ul><p style="color: var(--tour-action-color); font-weight: 600;">Start by creating a group, connecting a provider, and generating an API key.</p></div>',
         nextBtn: 'Start setup',
         prevBtn: 'Skip',
       },
       groupManage: {
         title: 'Step 1: Group management',
         description:
-          '<div style="line-height: 1.7;"><p style="margin-bottom: 12px;"><b>What is a Group?</b></p><p style="margin-bottom: 12px;">Groups are the core concept of TokenRouter, like a "service package":</p><ul style="margin-left: 20px; margin-bottom: 12px; font-size: 13px;"><li>Each group can contain multiple upstream providers</li><li>Each group has independent billing multiplier</li><li>Can be set as public or exclusive</li></ul><p style="margin-top: 12px; font-size: 13px;"><b>Example:</b> You can create "VIP Premium" (high rate) and "Free Trial" (low rate) groups</p><p style="margin-top: 16px; color: var(--tour-action-color); font-weight: 600;">Click "Group Management" on the left sidebar</p></div>',
+          '<div style="line-height: 1.7;"><p style="margin-bottom: 12px;"><b>What is a Group?</b></p><p style="margin-bottom: 12px;">Groups are the core concept of AI Relay, like a "service package":</p><ul style="margin-left: 20px; margin-bottom: 12px; font-size: 13px;"><li>Each group can contain multiple upstream providers</li><li>Each group has independent billing multiplier</li><li>Can be set as public or exclusive</li></ul><p style="margin-top: 12px; font-size: 13px;"><b>Example:</b> You can create "VIP Premium" (high rate) and "Free Trial" (low rate) groups</p><p style="margin-top: 16px; color: var(--tour-action-color); font-weight: 600;">Click "Group Management" on the left sidebar</p></div>',
       },
       createGroup: {
         title: 'Create a group',
@@ -424,7 +424,7 @@ export default {
     // User tour steps
     user: {
       welcome: {
-        title: 'Welcome to TokenRouter',
+        title: 'Welcome to AI Relay',
         description:
           '<div style="line-height: 1.8;"><p style="margin-bottom: 16px;">Use an API key to connect your application to the available AI models.</p><p style="margin-bottom: 12px;"><b>Quick Start:</b></p><ul style="margin-left: 20px; margin-bottom: 16px;"><li>Create API Key</li><li>Copy key to your application</li><li>Start using AI services</li></ul><p style="color: var(--tour-action-color); font-weight: 600;">Open API Keys to create your first key.</p></div>',
         nextBtn: 'Start',

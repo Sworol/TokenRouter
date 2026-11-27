@@ -4,6 +4,7 @@ import (
 	"context"
 	"strings"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/pkg/locale"
 )
 
@@ -41,7 +42,7 @@ func NewDisplaySettings(store interface {
 // The grouped localized setting takes precedence over the legacy site_name
 // value according to locale.ReadGroupedText, which also handles failed reads.
 func (s *DisplaySettings) GetSiteName(ctx context.Context) string {
-	return locale.ReadGroupedText(ctx, s.store, SettingKeySiteTexts, SettingKeySiteName, "TokenRouter")
+	return locale.ReadGroupedText(ctx, s.store, SettingKeySiteTexts, SettingKeySiteName, brand.Name)
 }
 
 // GetFrontendURL returns the stored frontend URL or the deployment callback result.

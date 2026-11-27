@@ -8,6 +8,8 @@ import (
 	"strings"
 
 	"golang.org/x/term"
+
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 )
 
 // cli.go collects interactive installation inputs and runs the confirmed setup
@@ -30,9 +32,14 @@ import (
 func RunCLI() error {
 	reader := bufio.NewReader(os.Stdin)
 
+	title := brand.Name + " Installation Wizard"
+	padding := 43 - len(title)
+	if padding < 0 {
+		padding = 0
+	}
 	fmt.Println()
 	fmt.Println("╔═══════════════════════════════════════════╗")
-	fmt.Println("║     TokenRouter Installation Wizard       ║")
+	fmt.Printf("║%s%s%s║\n", strings.Repeat(" ", (padding+1)/2), title, strings.Repeat(" ", padding/2))
 	fmt.Println("╚═══════════════════════════════════════════╝")
 	fmt.Println()
 

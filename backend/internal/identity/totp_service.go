@@ -7,11 +7,13 @@ import (
 	"encoding/hex"
 	"fmt"
 	"log/slog"
+	"strings"
 	"time"
 
 	"github.com/pquerna/otp"
 	"github.com/pquerna/otp/totp"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	infraerrors "github.com/TokenFlux/TokenRouter/internal/pkg/apperror"
 )
 
@@ -38,8 +40,7 @@ const (
 	totpSetupTTL = 5 * time.Minute // pending enrollment cache lifetime
 	totpLoginTTL = 5 * time.Minute // second-factor login cache lifetime
 
-	maxTotpAttempts = 5             // maximum readable invalid-proof count
-	totpIssuer      = "TokenRouter" // enrollment issuer display text
+	maxTotpAttempts = 5 // maximum readable invalid-proof count
 
 	// StepUpGrantTTL is the validity window for sensitive-operation TOTP grants.
 	StepUpGrantTTL = 15 * time.Minute
@@ -365,8 +366,12 @@ func (s *TotpService) InitiateSetup(ctx context.Context, userID int64, emailCode
 		return nil, err
 	}
 
+	issuer := strings.TrimSpace(s.settingService.GetSiteName(ctx))
+	if issuer == "" {
+		issuer = brand.TOTPIssuer
+	}
 	key, err := totp.Generate(totp.GenerateOpts{
-		Issuer:      totpIssuer,
+		Issuer:      issuer,
 		AccountName: user.Email,
 	})
 	if err != nil {

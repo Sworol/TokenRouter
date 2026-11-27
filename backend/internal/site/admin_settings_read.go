@@ -3,6 +3,7 @@ package site
 import (
 	"strings"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	settingvalues "github.com/TokenFlux/TokenRouter/internal/settings"
 )
 
@@ -78,10 +79,10 @@ func ReadAdminSettings(settings map[string]string) *AdminReadSettings {
 	result.LoginAgreementMode = NormalizeLoginAgreementMode(settings[SettingKeyLoginAgreementMode])
 	result.LoginAgreementUpdatedAt = loginAgreementUpdatedAt
 	result.LoginAgreementDocuments = loginAgreementDocuments
-	result.SiteName = settingvalues.StringOrDefault(settings, SettingKeySiteName, "TokenRouter")
+	result.SiteName = settingvalues.StringOrDefault(settings, SettingKeySiteName, brand.Name)
 	result.SiteLogo = settings[SettingKeySiteLogo]
 	result.SiteShareImage = settings[SettingKeySiteShareImage]
-	result.SiteSubtitle = settingvalues.StringOrDefault(settings, SettingKeySiteSubtitle, "Subscription to API Conversion Platform")
+	result.SiteSubtitle = settingvalues.StringOrDefault(settings, SettingKeySiteSubtitle, brand.Subtitle)
 	result.APIBaseURL = settings[SettingKeyAPIBaseURL]
 	result.ContactInfo = settings[SettingKeyContactInfo]
 	result.DocURL = settings[SettingKeyDocURL]

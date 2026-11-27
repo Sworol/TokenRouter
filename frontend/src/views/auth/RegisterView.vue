@@ -399,6 +399,7 @@ import {
 } from '@/utils/registrationEmailPolicy'
 import { clearAffiliateCode, loadAffiliateCode, resolveAffiliateCode } from '@/utils/oauthAffiliate'
 import type { LoginAgreementDocument, PublicSettings } from '@/api/settings.types'
+import { BRAND } from '@/constants/brand'
 
 // RegisterView.vue coordinates local signup, provider signup, agreement consent,
 // and promotional input validation. Public settings decide whether email
@@ -717,10 +718,10 @@ onUnmounted(() => {
 })
 
 // resolveLocalizedSiteName returns the configured trimmed site name for success
-// messages. Missing or blank settings use TokenRouter, including the period before
+// messages. Missing or blank settings use BRAND.name, including the period before
 // the public-settings request has completed.
 function resolveLocalizedSiteName(settings: PublicSettings | null): string {
-  return settings?.site_name?.trim() || 'TokenRouter'
+  return settings?.site_name?.trim() || BRAND.name
 }
 
 // applyLoginAgreementSettings derives the active consent gate from public

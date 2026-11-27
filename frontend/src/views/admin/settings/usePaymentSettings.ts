@@ -8,6 +8,7 @@ import { extractI18nErrorMessage } from '@/utils/apiError'
 import { useAppStore } from '@/stores'
 import { normalizeVisibleMethod } from '@/utils/payment/paymentFlow'
 import type { SettingsForm } from './settingsState'
+import { BRAND } from '@/constants/brand'
 
 /**
  * usePaymentSettings.ts edits the shared payment draft and manages persisted
@@ -77,8 +78,7 @@ export function usePaymentSettings(
 
   // paymentGuideHref and fee choices provide the payment panel with
   // documentation and visible method labels.
-  const paymentGuideHref =
-    'https://github.com/TokenFlux/TokenRouter/blob/main/docs/guides/payments/configuration.md'
+  const paymentGuideHref = `${BRAND.repositoryUrl}/blob/main/docs/guides/payments/configuration.md`
 
   const paymentMethodFeeOptions = [
     { value: 'stripe', label: 'Stripe' },

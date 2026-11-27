@@ -297,16 +297,16 @@ export default {
     // Admin tour steps
     admin: {
       welcome: {
-        title: '欢迎使用 TokenRouter',
+        title: '欢迎使用 AI Relay',
         description:
-          '<div style="line-height: 1.8;"><p style="margin-bottom: 16px;">TokenRouter 通过已接入的提供商转发 AI 请求，并管理 API 密钥、计费和额度。</p><p style="margin-bottom: 12px;"><b>核心功能：</b></p><ul style="margin-left: 20px; margin-bottom: 16px;"><li><b>分组管理</b> - 创建不同的服务套餐（VIP、免费试用等）</li><li><b>提供商池</b> - 连接多个上游 AI 服务商提供商</li><li><b>密钥分发</b> - 为用户生成独立的 API Key</li><li><b>计费管理</b> - 灵活的费率和配额控制</li></ul><p style="color: var(--tour-action-color); font-weight: 600;">先创建分组，再接入提供商，最后生成 API 密钥。</p></div>',
+          '<div style="line-height: 1.8;"><p style="margin-bottom: 16px;">AI Relay 通过已接入的提供商转发 AI 请求，并管理 API 密钥、计费和额度。</p><p style="margin-bottom: 12px;"><b>核心功能：</b></p><ul style="margin-left: 20px; margin-bottom: 16px;"><li><b>分组管理</b> - 创建不同的服务套餐（VIP、免费试用等）</li><li><b>提供商池</b> - 连接多个上游 AI 服务商提供商</li><li><b>密钥分发</b> - 为用户生成独立的 API Key</li><li><b>计费管理</b> - 灵活的费率和配额控制</li></ul><p style="color: var(--tour-action-color); font-weight: 600;">先创建分组，再接入提供商，最后生成 API 密钥。</p></div>',
         nextBtn: '开始配置',
         prevBtn: '跳过',
       },
       groupManage: {
         title: '第一步：分组管理',
         description:
-          '<div style="line-height: 1.7;"><p style="margin-bottom: 12px;"><b>什么是分组？</b></p><p style="margin-bottom: 12px;">分组是 TokenRouter 的核心概念，它就像一个"服务套餐"：</p><ul style="margin-left: 20px; margin-bottom: 12px; font-size: 13px;"><li>每个分组可以包含多个上游提供商</li><li>每个分组有独立的计费倍率</li><li>可以设置为公开或专属分组</li></ul><p style="margin-top: 12px; font-size: 13px;"><b>示例：</b>您可以创建"VIP专线"（高倍率）和"免费试用"（低倍率）两个分组</p><p style="margin-top: 16px; color: var(--tour-action-color); font-weight: 600;">点击左侧的"分组管理"开始</p></div>',
+          '<div style="line-height: 1.7;"><p style="margin-bottom: 12px;"><b>什么是分组？</b></p><p style="margin-bottom: 12px;">分组是 AI Relay 的核心概念，它就像一个"服务套餐"：</p><ul style="margin-left: 20px; margin-bottom: 12px; font-size: 13px;"><li>每个分组可以包含多个上游提供商</li><li>每个分组有独立的计费倍率</li><li>可以设置为公开或专属分组</li></ul><p style="margin-top: 12px; font-size: 13px;"><b>示例：</b>您可以创建"VIP专线"（高倍率）和"免费试用"（低倍率）两个分组</p><p style="margin-top: 16px; color: var(--tour-action-color); font-weight: 600;">点击左侧的"分组管理"开始</p></div>',
       },
       createGroup: {
         title: '创建新分组',
@@ -412,7 +412,7 @@ export default {
     // User tour steps
     user: {
       welcome: {
-        title: '欢迎使用 TokenRouter',
+        title: '欢迎使用 AI Relay',
         description:
           '<div style="line-height: 1.8;"><p style="margin-bottom: 16px;">使用 API 密钥，将应用连接到平台已接入的 AI 模型。</p><p style="margin-bottom: 12px;"><b>快速开始：</b></p><ul style="margin-left: 20px; margin-bottom: 16px;"><li>创建 API 密钥</li><li>复制密钥到您的应用</li><li>开始使用 AI 服务</li></ul><p style="color: var(--tour-action-color); font-weight: 600;">打开 API 密钥页面，创建第一个密钥。</p></div>',
         nextBtn: '开始',

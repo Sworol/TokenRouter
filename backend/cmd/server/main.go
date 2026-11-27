@@ -22,6 +22,7 @@ import (
 	_ "github.com/TokenFlux/TokenRouter/ent/runtime"
 	"github.com/TokenFlux/TokenRouter/internal/app"
 	"github.com/TokenFlux/TokenRouter/internal/app/lifecycle"
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/config"
 	"github.com/TokenFlux/TokenRouter/internal/infra/telemetry/logging"
 	"github.com/TokenFlux/TokenRouter/internal/server/middleware"
@@ -115,7 +116,7 @@ func run() (err error) {
 	configOutput := flag.String("out", "", "Migration output path, or - for stdout")
 	flag.Parse()
 	if *showVersion {
-		log.Printf("TokenRouter %s (commit: %s, built: %s)\n", Version, Commit, Date)
+		log.Printf("%s %s (commit: %s, built: %s)\n", brand.Name, Version, Commit, Date)
 		return nil
 	}
 	if *migrateConfig {
@@ -179,7 +180,7 @@ func runSetupServer(ctx context.Context, restarter *lifecycle.Restarter) (err er
 	// configuration exists; discovery of an installed file suppresses this path.
 	addr := setup.ListenAddress()
 	log.Printf("Setup wizard available at http://%s", addr)
-	log.Println("Complete the setup wizard to configure TokenRouter")
+	log.Println("Complete the setup wizard to configure " + brand.Name)
 
 	protocols := new(http.Protocols)
 	protocols.SetHTTP1(true)

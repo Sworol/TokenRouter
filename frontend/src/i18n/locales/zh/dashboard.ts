@@ -331,10 +331,10 @@ export default {
       },
       grok: {
         description:
-          '配置 Grok Build、Claude Code、Codex 或 OpenCode，让请求通过当前 TokenRouter Grok 分组发送。',
+          '配置 Grok Build、Claude Code、Codex 或 OpenCode，让请求通过当前 AI Relay Grok 分组发送。',
         claudeDescription:
-          '配置 Claude Code，让 Messages API 请求通过当前 TokenRouter Grok 分组发送。',
-        codexDescription: '配置 Codex，让 Responses API 请求通过当前 TokenRouter Grok 分组发送。',
+          '配置 Claude Code，让 Messages API 请求通过当前 AI Relay Grok 分组发送。',
+        codexDescription: '配置 Codex，让 Responses API 请求通过当前 AI Relay Grok 分组发送。',
         configTomlHint:
           '如已有 config.toml，请先备份再合并此模型配置。保存后运行 grok inspect 验证生效配置。',
         codexConfigTomlHint: '如已有 config.toml，请先备份再合并此服务商配置。',

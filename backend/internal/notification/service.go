@@ -19,6 +19,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/notification/contract"
 	"github.com/TokenFlux/TokenRouter/internal/pkg/locale"
 	"github.com/TokenFlux/TokenRouter/internal/settings"
@@ -41,7 +42,7 @@ import (
 const (
 	// Branding values identify current site copy and link bases used by
 	// rendering and unsubscribe URLs, with a built-in site name for missing copy.
-	defaultSiteName       = "TokenRouter"
+	defaultSiteName       = brand.Name
 	SettingKeySiteName    = "site_name"
 	SettingKeyFrontendURL = "frontend_url"
 

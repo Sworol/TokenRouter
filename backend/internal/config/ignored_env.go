@@ -9,6 +9,8 @@ import (
 	"strings"
 
 	"gopkg.in/yaml.v3"
+
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 )
 
 // ignored_env.go identifies residual deployment variables after successful loading.
@@ -65,7 +67,7 @@ var (
 func warnIgnoredEnvironment(cfg *Config, doc *yaml.Node, path string, env upgradeEnvironment) {
 	names := ignoredEnvironmentNames(cfg, doc, env.LookupEnv)
 	if len(names) > 0 {
-		slog.Warn("environment variables no longer configure TokenRouter and were ignored; edit "+path+" instead", "names", names)
+		slog.Warn("environment variables no longer configure "+brand.Name+" and were ignored; edit "+path+" instead", "names", names)
 	}
 }
 

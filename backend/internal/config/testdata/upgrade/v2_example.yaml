@@ -7,7 +7,7 @@
 #
 # Documentation: https://github.com/TokenFlux/TokenRouter
 
-# Managed by TokenRouter; see docs/interfaces/configuration.md before editing config_version.
+# Managed by AI Relay; see docs/interfaces/configuration.md before editing config_version.
 config_version: 2
 # =============================================================================
 # Server Configuration

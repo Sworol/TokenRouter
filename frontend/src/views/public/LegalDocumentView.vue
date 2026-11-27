@@ -116,6 +116,7 @@ import { useAppStore } from '@/stores/app'
 import { useI18n } from 'vue-i18n'
 import { apiClient } from '@/api/client'
 import type { LoginAgreementDocument } from '@/api/settings.types'
+import { BRAND } from '@/constants/brand'
 
 // LegalDocumentView.vue loads the selected public legal document and renders its
 // Markdown with the site's current branding. Route identifiers and language
@@ -152,7 +153,7 @@ marked.setOptions({
 // Document identity and branding derive from the current route and refreshed
 // settings; the logo source is filtered before falling back to the built-in asset.
 const documentId = computed(() => String(route.params.documentId || ''))
-const siteName = computed(() => settings.value?.site_name || 'TokenRouter')
+const siteName = computed(() => settings.value?.site_name || BRAND.name)
 const siteLogo = computed(() =>
   sanitizeUrl(settings.value?.site_logo || '', {
     allowRelative: true,

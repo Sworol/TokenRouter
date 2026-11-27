@@ -383,6 +383,7 @@ import type {
 } from '@/api/marketplace.types'
 
 import { useAppStore, useAuthStore } from '@/stores'
+import { BRAND } from '@/constants/brand'
 
 // ModelMarketplaceView.vue displays authorized model groups with searchable pricing
 // and capability details. Authenticated visitors use the application layout,
@@ -445,7 +446,7 @@ let disposed = false
 const isAuthenticated = computed(() => authStore.isAuthenticated)
 const catalogUserID = computed(() => (isAuthenticated.value ? (authStore.user?.id ?? null) : null))
 
-const siteName = computed(() => appStore.siteName || 'TokenRouter')
+const siteName = computed(() => appStore.siteName || BRAND.name)
 const siteLogo = computed(() =>
   sanitizeUrl(appStore.cachedPublicSettings?.site_logo || appStore.siteLogo || '', {
     allowRelative: true,

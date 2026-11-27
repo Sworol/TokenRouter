@@ -7,6 +7,7 @@ import (
 	"net/mail"
 	"strings"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	infraerrors "github.com/TokenFlux/TokenRouter/internal/pkg/apperror"
 )
 
@@ -201,7 +202,7 @@ func (s *AuthService) SendEmailIdentityBindCode(ctx context.Context, userID int6
 		return err
 	}
 
-	siteName := "TokenRouter"
+	siteName := brand.Name
 	if s.Settings != nil {
 		siteName = s.Settings.GetSiteName(ctx)
 	}

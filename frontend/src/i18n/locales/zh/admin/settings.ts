@@ -180,10 +180,10 @@ export default {
       bstats: {
         title: 'bStats',
         description:
-          '将基础运行信息发送至 bStats，帮助了解 TokenRouter 的安装与版本分布，为后续改进提供参考。默认开启，可随时关闭。',
+          '将基础运行信息发送至 bStats，帮助了解 AI Relay 的安装与版本分布，为后续改进提供参考。默认开启，可随时关闭。',
         enabled: '启用 bStats',
         dataHint:
-          '上报随机实例标识、操作系统及版本、架构、CPU 核数，以及 TokenRouter 和 Go 版本。bStats 根据上报连接推导国家分布，不上报账户、API Key、提示词、请求、用量或支付数据。',
+          '上报随机实例标识、操作系统及版本、架构、CPU 核数，以及 AI Relay 和 Go 版本。bStats 根据上报连接推导国家分布，不上报账户、API Key、提示词、请求、用量或支付数据。',
         viewStatistics: '查看公开统计',
         logErrors: '记录上报错误',
         logErrorsHint: '将上报失败信息写入服务端日志，默认关闭。',
@@ -416,7 +416,7 @@ export default {
     },
     linuxdo: {
       title: 'LinuxDo Connect 登录',
-      description: '配置 LinuxDo Connect OAuth，用于 TokenRouter 用户登录',
+      description: '配置 LinuxDo Connect OAuth，用于 AI Relay 用户登录',
       enable: '启用 LinuxDo 登录',
       enableHint: '在登录/注册页面显示 LinuxDo 登录入口',
       clientId: 'Client ID',
@@ -435,7 +435,7 @@ export default {
     },
     dingtalk: {
       title: '钉钉登录',
-      description: '配置钉钉 OAuth，用于 TokenRouter 用户登录',
+      description: '配置钉钉 OAuth，用于 AI Relay 用户登录',
       enable: '启用钉钉登录-企业内部应用',
       enableHint: '在登录/注册页面显示钉钉登录入口',
       clientId: 'Client ID（AppKey）',
@@ -802,16 +802,16 @@ export default {
       backendModeDescription: '禁用用户注册、公开页面和自助服务功能。仅管理员可以登录和管理平台。',
       siteName: '站点名称',
       siteNameHint: '显示在邮件和页面标题中',
-      siteNamePlaceholder: 'TokenRouter',
+      siteNamePlaceholder: 'AI Relay',
       siteSubtitle: '站点副标题',
       siteSubtitleHint: '显示在登录和注册页面',
       siteSubtitlePlaceholder: '订阅转 API 转换平台',
       siteCopyTitle: '站点文案',
       siteCopyDescription: '配置站点名称、站点标题和站点副标题的中英文内容',
       siteNameZh: '站点名称（中文）',
-      siteNameZhPlaceholder: 'TokenRouter',
+      siteNameZhPlaceholder: 'AI Relay',
       siteNameEn: '站点名称（英文）',
-      siteNameEnPlaceholder: 'TokenRouter',
+      siteNameEnPlaceholder: 'AI Relay',
       siteTitleZh: '站点标题（中文）',
       siteTitleZhPlaceholder: '统一的大模型接口',
       siteTitleEn: '站点标题（英文）',
@@ -1039,7 +1039,7 @@ export default {
       easypayMerchantOrderNoCompatibilityHint:
         '仅当服务商下单时把商户订单号作为交易号返回时开启。首次确认付款时，使用查单核验的交易号。',
       easypayCustomMethodsHint:
-        '添加当前易支付服务商额外支持的支付方式。支付方式会记录到 TokenRouter 订单中，上游 type 会作为易支付 type 参数提交。',
+        '添加当前易支付服务商额外支持的支付方式。支付方式会记录到 AI Relay 订单中，上游 type 会作为易支付 type 参数提交。',
       addCustomMethod: '添加方式',
       customMethodType: '支付方式',
       customMethodUpstreamType: '上游 type',
@@ -1167,7 +1167,7 @@ export default {
       fromEmail: '发件人邮箱',
       fromEmailPlaceholder: "noreply{'@'}example.com",
       fromName: '发件人名称',
-      fromNamePlaceholder: 'TokenRouter',
+      fromNamePlaceholder: 'AI Relay',
       useTls: '使用 TLS',
       useTlsHint: '为 SMTP 连接启用 TLS 加密',
     },
@@ -1372,7 +1372,7 @@ export default {
       scopeBedrock: '仅 Bedrock 提供商',
       userIds: '指定用户',
       userIdsHint:
-        '输入任意邮箱关键词进行模糊搜索。留空表示对全部 TokenRouter 用户生效；选中用户的 API Key 请求优先匹配用户规则。',
+        '输入任意邮箱关键词进行模糊搜索。留空表示对全部 AI Relay 用户生效；选中用户的 API Key 请求优先匹配用户规则。',
       userSearchPlaceholder: '输入用户邮箱搜索',
       userSearchEmpty: '未找到匹配用户',
       userDeleted: '（已删除）',

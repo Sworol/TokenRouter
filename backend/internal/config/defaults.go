@@ -1,5 +1,7 @@
 package config
 
+import "github.com/TokenFlux/TokenRouter/internal/brand"
+
 // defaults.go initializes version 2 startup defaults on a fresh Config value
 // before YAML node decoding. Constructing typed defaults in one place populates
 // omitted keys without activating implicit environment bindings or altering
@@ -74,7 +76,7 @@ func defaultConfig() Config {
 	// Passkeys are disabled by default; enabling requires a relying-party domain
 	// and trusted browser origins.
 	cfg.Auth.WebAuthn.Enabled = false
-	cfg.Auth.WebAuthn.RPDisplayName = "TokenRouter"
+	cfg.Auth.WebAuthn.RPDisplayName = brand.WebAuthnDisplayName
 	cfg.Auth.WebAuthn.RPID = ""
 	cfg.Auth.WebAuthn.RPOrigins = []string{}
 

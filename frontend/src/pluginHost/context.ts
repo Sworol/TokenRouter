@@ -8,7 +8,7 @@ import type { HostApi } from '@tokenflux/tokenrouter-plugin-sdk'
 
 // The private symbol connects page providers to runtime useHost and teleported
 // component wrappers without publishing a token or mutable authentication object.
-export const PLUGIN_HOST_KEY: InjectionKey<HostApi> = Symbol('TokenRouter plugin host')
+export const PLUGIN_HOST_KEY: InjectionKey<HostApi> = Symbol('plugin host')
 
 /** useHost retrieves the mounted page's plugin-scoped host capability object.
  * Call during component setup or synchronous functional rendering beneath

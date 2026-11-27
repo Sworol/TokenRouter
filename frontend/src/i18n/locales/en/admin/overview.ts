@@ -1070,10 +1070,10 @@ export default {
     openaiLive: {
       title: 'OpenAI Live',
       allow: 'Allow Live access',
-      hint: 'When enabled, API keys in this group can create and control Live voice sessions. Disabled by default. The TokenRouter server must run on Apple Silicon macOS with the official ChatGPT app installed; client platforms are unrestricted.',
+      hint: 'When enabled, API keys in this group can create and control Live voice sessions. Disabled by default. The AI Relay server must run on Apple Silicon macOS with the official ChatGPT app installed; client platforms are unrestricted.',
       unsupportedTitle: 'Current server does not support Live',
       unsupportedMessage:
-        'This TokenRouter server cannot generate the required Live attestation. Live will not work even if enabled. Continue anyway?',
+        'This AI Relay server cannot generate the required Live attestation. Live will not work even if enabled. Continue anyway?',
       enableAnyway: 'Enable anyway',
     },
     openaiFast: {

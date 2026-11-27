@@ -991,8 +991,8 @@ export default {
       searchTestHint:
         'Standalone web_search probe (same as gateway /v1/web_search). Not a free-form chat with tools.',
       ttsTextLabel: 'TTS text',
-      ttsTextPlaceholder: 'Example: Hello from TokenRouter connectivity test.',
-      ttsTextDefault: 'Hello from TokenRouter provider connectivity test.',
+      ttsTextPlaceholder: 'Example: Hello from AI Relay connectivity test.',
+      ttsTextDefault: 'Hello from AI Relay provider connectivity test.',
       ttsTestHint: 'Standalone /v1/tts with language=en; success reports audio byte size.',
       sttTestHint:
         'Standalone /v1/stt with a synthetic silent WAV; success means the endpoint is reachable.',

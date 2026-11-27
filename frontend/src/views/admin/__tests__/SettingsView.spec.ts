@@ -5,6 +5,7 @@ import { flushPromises, mount, DOMWrapper, enableAutoUnmount } from '@vue/test-u
 import SettingsView from '../SettingsView.vue'
 import ImageUpload from '@/components/common/ImageUpload.vue'
 import BaseDialog from '@/components/common/BaseDialog.vue'
+import { BRAND } from '@/constants/brand'
 
 // SettingsView.spec.ts exercises settings editing through mounted page controls and
 // observes API requests and store refreshes. The suite covers independent save
@@ -1793,7 +1794,7 @@ describe('admin SettingsView payment visible method controls', () => {
 
     expect(paymentLinks).toHaveLength(1)
     expect(paymentLinks[0]?.attributes('href')).toBe(
-      'https://github.com/TokenFlux/TokenRouter/blob/main/docs/guides/payments/configuration.md',
+      `${BRAND.repositoryUrl}/blob/main/docs/guides/payments/configuration.md`,
     )
   })
 

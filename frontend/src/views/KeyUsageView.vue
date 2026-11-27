@@ -653,6 +653,7 @@ import { useTheme } from '@/composables/useTheme'
 import { fetchGatewayKeyUsage } from '@/api/usage'
 import { formatDateLocalInput } from '@/utils/format'
 import { sanitizeUrl } from '@/utils/url'
+import { BRAND } from '@/constants/brand'
 
 // KeyUsageView.vue queries API-key usage and displays quota, billing availability, reset
 // times, and usage summaries for a selected range. The key is sent as a bearer credential
@@ -677,7 +678,7 @@ const { formatBalanceAmount } = useBalanceDisplay()
 
 // Site presentation derives sanitized branding and documentation links from cached public
 // settings, with application defaults for missing values.
-const siteName = computed(() => appStore.siteName || 'TokenRouter')
+const siteName = computed(() => appStore.siteName || BRAND.name)
 const siteLogo = computed(() =>
   sanitizeUrl(appStore.cachedPublicSettings?.site_logo || appStore.siteLogo || '', {
     allowRelative: true,
@@ -689,7 +690,7 @@ const docUrl = computed(() =>
 )
 // githubUrl supplies the project repository destination displayed by the public usage page
 // footer alongside documentation.
-const githubUrl = 'https://github.com/TokenFlux/TokenRouter'
+const githubUrl = BRAND.repositoryUrl
 
 // Theme state controls the public page switch and reactive ring track colors for light and
 // dark backgrounds.

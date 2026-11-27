@@ -11,6 +11,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/pkg/locale"
 	"github.com/TokenFlux/TokenRouter/internal/pkg/timezone"
 )
@@ -291,7 +292,7 @@ func (s *PublicService) GetPublicSettings(ctx context.Context) (*PublicSettings,
 		AliyunCaptchaSceneID:        settings[SettingKeyAliyunCaptchaSceneID],
 		AliyunCaptchaPrefix:         settings[SettingKeyAliyunCaptchaPrefix],
 		AliyunCaptchaRegion:         input.Auth.AliyunRegion,
-		SiteName:                    s.getStringOrDefault(settings, SettingKeySiteName, "TokenRouter"),
+		SiteName:                    s.getStringOrDefault(settings, SettingKeySiteName, brand.Name),
 		SiteLogo:                    settings[SettingKeySiteLogo],
 		SiteShareTitle:              settings["site_share_title"],
 		SiteShareDescription:        settings["site_share_description"],

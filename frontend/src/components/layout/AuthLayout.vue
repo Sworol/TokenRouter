@@ -53,6 +53,7 @@ import { computed, onMounted } from 'vue'
 import AuthBackground from '@/components/auth/AuthBackground.vue'
 import { useAppStore } from '@/stores'
 import { sanitizeUrl } from '@/utils/url'
+import { BRAND } from '@/constants/brand'
 
 // AuthLayout.vue frames authentication forms with site branding, a background, and
 // footer slots. Public settings determine the displayed name, sanitized logo, and
@@ -73,7 +74,7 @@ const appStore = useAppStore()
 
 // Branding values use configured public settings; the logo passes URL sanitization and
 // the subtitle honors an explicit empty override when one is present.
-const siteName = computed(() => appStore.siteName || 'TokenRouter')
+const siteName = computed(() => appStore.siteName || BRAND.name)
 const siteLogo = computed(() =>
   sanitizeUrl(appStore.siteLogo || '', { allowRelative: true, allowDataUrl: true }),
 )

@@ -10,6 +10,7 @@ import type {
   CreativeModelSetting,
 } from '@/api/admin/settings.types'
 import type { NotifyEmailEntry } from '@/api/notifications.types'
+import { BRAND } from '@/constants/brand'
 import {
   tablePageSizeDefault,
   usageRankingLimitDefault,
@@ -162,9 +163,9 @@ export function createSettingsForm() {
         'home_content',
         'purchase_subscription_url',
         'footer_text',
-      ].map((key) => [key, originalContent(key === 'site_name' ? 'TokenRouter' : '', getLocale())]),
+      ].map((key) => [key, originalContent(key === 'site_name' ? BRAND.name : '', getLocale())]),
     ) as Record<string, LocalizedUpdate<string>>,
-    site_name: 'TokenRouter',
+    site_name: BRAND.name,
     site_logo: '',
     site_share_image: '',
     site_subtitle: 'Subscription to API Conversion Platform',

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { PluginUI } from '@/api/plugins.types'
 import { resolveDocumentTitle, resolveRouteDocumentTitle } from '@/router/title'
+import { BRAND } from '@/constants/brand'
 
 // title.spec.ts checks browser document titles derived from route metadata,
 // site settings, and custom menu entries. Titles retain their configured site
@@ -25,8 +26,8 @@ describe('resolveDocumentTitle', () => {
   // inputs use the default product name with the appropriate optional page
   // prefix.
   it('站点名为空时，回退默认站点名', () => {
-    expect(resolveDocumentTitle('Dashboard', '')).toBe('Dashboard - TokenRouter')
-    expect(resolveDocumentTitle(undefined, '   ')).toBe('TokenRouter')
+    expect(resolveDocumentTitle('Dashboard', '')).toBe(`Dashboard - ${BRAND.name}`)
+    expect(resolveDocumentTitle(undefined, '   ')).toBe(BRAND.name)
   })
 
   // The site name changes between two title calculations for the same page.

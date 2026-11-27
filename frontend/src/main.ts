@@ -6,6 +6,7 @@ import i18n, { initI18n, getLocale } from './i18n'
 import { useAppStore } from '@/stores/app'
 import { initTheme } from '@/composables/useTheme'
 import { updateFavicon } from '@/utils/branding'
+import { BRAND } from '@/constants/brand'
 import { isIOSDevice } from '@/utils/device'
 import '@fontsource-variable/plus-jakarta-sans'
 import '@fontsource-variable/plus-jakarta-sans/wght-italic.css'
@@ -55,8 +56,8 @@ async function bootstrap() {
   // Read injected settings after Pinia installation and before router installation,
   // allowing initial navigation and branding to observe startup configuration.
   appStore.initFromInjectedConfig()
-  if (appStore.siteName && appStore.siteName !== 'TokenRouter') {
-    document.title = `${appStore.siteName} - AI API Gateway`
+  if (appStore.siteName) {
+    document.title = `${appStore.siteName} - ${BRAND.titleSuffix}`
   }
   updateFavicon(appStore.siteLogo)
 

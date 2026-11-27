@@ -7,6 +7,8 @@ import (
 	"time"
 
 	"github.com/stretchr/testify/require"
+
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 )
 
 const (
@@ -152,7 +154,7 @@ func TestReleaseQueryFetchLatestReleasePreservesChangelog(t *testing.T) {
 				BuildType: "source",
 			}, info)
 			require.Equal(t, 1, client.latestCalls)
-			require.Equal(t, "TokenFlux/TokenRouter", client.latestRepo)
+			require.Equal(t, brand.ReleaseRepository, client.latestRepo)
 		})
 	}
 }

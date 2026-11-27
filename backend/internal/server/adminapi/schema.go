@@ -10,6 +10,8 @@ import (
 	"time"
 
 	"github.com/google/jsonschema-go/jsonschema"
+
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 )
 
 // schema.go describes management arguments using the HTTP request types that
@@ -237,7 +239,7 @@ func (c *Catalog) OpenAPI() map[string]any {
 	}
 	return map[string]any{
 		"openapi":  "3.1.0",
-		"info":     map[string]any{"title": "TokenRouter management API", "version": "1"},
+		"info":     map[string]any{"title": brand.Name + " management API", "version": "1"},
 		"paths":    paths,
 		"security": []map[string]any{{"adminSession": []string{}}, {"adminKey": []string{}}},
 		"components": map[string]any{"securitySchemes": map[string]any{

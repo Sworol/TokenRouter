@@ -24,6 +24,7 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/identity"
 	identityhttp "github.com/TokenFlux/TokenRouter/internal/identity/httpapi"
 	"github.com/TokenFlux/TokenRouter/internal/identity/httpapi/authctx"
@@ -433,7 +434,7 @@ func TestMCPPublicHostOverLoopback(t *testing.T) {
 			require.NoError(t, json.Unmarshal(envelope["result"], &initialized))
 			require.Equal(t, "2025-11-25", initialized.ProtocolVersion)
 			require.NotNil(t, initialized.ServerInfo)
-			require.Equal(t, "TokenRouter", initialized.ServerInfo.Name)
+			require.Equal(t, brand.MCPName, initialized.ServerInfo.Name)
 		})
 	}
 }

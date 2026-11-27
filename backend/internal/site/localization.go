@@ -8,6 +8,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/pkg/apperror"
 	"github.com/TokenFlux/TokenRouter/internal/pkg/locale"
 )
@@ -66,7 +67,7 @@ func ParseLocalizedTexts(values map[string]string) LocalizedTexts {
 		if _, exists := result[key]; !exists {
 			value := values[key]
 			if key == "site_name" && value == "" {
-				value = "TokenRouter"
+				value = brand.Name
 			}
 			result[key] = locale.Update[string]{Content: locale.Original(value)}
 		}

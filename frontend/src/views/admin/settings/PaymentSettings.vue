@@ -30,7 +30,7 @@
           <div>
             <LocalizedEditor
               :label="t('admin.settings.payment.productNamePrefix')"
-              placeholder="TokenRouter"
+              :placeholder="BRAND.name"
               v-model="form.localized_settings.payment_product_name_prefix"
               :default-source-locale="getLocale()"
             />
@@ -50,7 +50,7 @@
             >
               {{
                 (resolveContent(form.localized_settings.payment_product_name_prefix, locale)
-                  .value || 'TokenRouter') +
+                  .value || BRAND.name) +
                 ' 100 ' +
                 (resolveContent(form.localized_settings.payment_product_name_suffix, locale)
                   .value || 'CNY')
@@ -540,6 +540,7 @@ import Select from '@/components/common/Select.vue'
 import PaymentProviderList from '@/components/admin/payment/PaymentProviderList.vue'
 import ImageUpload from '@/components/common/ImageUpload.vue'
 import type { usePaymentSettings, PaymentSettingsForm } from './usePaymentSettings'
+import { BRAND } from '@/constants/brand'
 
 /**
  * PaymentSettings.vue renders bulk payment controls and the persisted provider

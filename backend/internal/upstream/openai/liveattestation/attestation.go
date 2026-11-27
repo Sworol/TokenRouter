@@ -3,6 +3,8 @@ package liveattestation
 import (
 	"context"
 	"errors"
+
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 )
 
 // attestation.go defines the Live attestation provider interface and errors
@@ -16,8 +18,8 @@ import (
 // These sentinel errors distinguish unsupported host platforms from missing app
 // prerequisites so callers can report the appropriate Live setup failure.
 var (
-	ErrUnsupportedPlatform = errors.New("live attestation requires TokenRouter to run on Apple Silicon macOS; other server platforms are not supported")
-	ErrChatGPTAppMissing   = errors.New("live attestation requires the official ChatGPT app on the TokenRouter server")
+	ErrUnsupportedPlatform = errors.New("live attestation requires " + brand.Name + " to run on Apple Silicon macOS; other server platforms are not supported")
+	ErrChatGPTAppMissing   = errors.New("live attestation requires the official ChatGPT app on the " + brand.Name + " server")
 )
 
 // Provider checks local prerequisites and generates attestation for a Live

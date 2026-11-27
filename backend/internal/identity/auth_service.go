@@ -8,6 +8,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	infraerrors "github.com/TokenFlux/TokenRouter/internal/pkg/apperror"
 )
 
@@ -267,7 +268,7 @@ func (s *AuthService) SendVerifyCode(ctx context.Context, email string, locale .
 		return errors.New("email service not configured")
 	}
 
-	siteName := "TokenRouter"
+	siteName := brand.Name
 	if s.Settings != nil {
 		siteName = s.Settings.GetSiteName(ctx)
 	}
@@ -310,7 +311,7 @@ func (s *AuthService) SendVerifyCodeAsync(ctx context.Context, email string, loc
 		return nil, errors.New("email queue service not configured")
 	}
 
-	siteName := "TokenRouter"
+	siteName := brand.Name
 	if s.Settings != nil {
 		siteName = s.Settings.GetSiteName(ctx)
 	}
@@ -1202,7 +1203,7 @@ func (s *AuthService) AuthPreparePasswordReset(ctx context.Context, email, front
 		return "", "", false
 	}
 
-	siteName := "TokenRouter"
+	siteName := brand.Name
 	if s.Settings != nil {
 		siteName = s.Settings.GetSiteName(ctx)
 	}

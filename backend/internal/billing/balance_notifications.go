@@ -6,6 +6,7 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/TokenFlux/TokenRouter/internal/brand"
 	"github.com/TokenFlux/TokenRouter/internal/notification/contract"
 )
 
@@ -28,7 +29,7 @@ import (
 const (
 	// Default alert branding is used when the stored site label is empty or
 	// unreadable, keeping rendered messages identified to recipients.
-	defaultSiteName = "TokenRouter"
+	defaultSiteName = brand.Name
 
 	// Alert setting keys locate provider recipient lists, global switches,
 	// balance thresholds, recharge links and site branding for post-charge

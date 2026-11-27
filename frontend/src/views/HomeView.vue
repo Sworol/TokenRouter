@@ -597,10 +597,6 @@
             >
               {{ line }}
             </p>
-            <!-- A flex wrapper keeps the inline badge out of a line box, so no baseline gap appears below it. -->
-            <div class="mt-4 flex">
-              <PoweredByBadge />
-            </div>
           </div>
 
           <div v-for="column in footerColumns" :key="column.title" class="lg:min-w-[140px]">
@@ -634,6 +630,7 @@
 
 <script setup lang="ts">
 import { useLocaleRefresh } from '@/composables/useLocaleRefresh'
+import { BRAND } from '@/constants/brand'
 import { vContentReveal } from '@/directives/contentReveal'
 import { useRoute as useMotionRoute } from 'vue-router'
 
@@ -656,7 +653,6 @@ import type { MarketplaceGroup, MarketplaceModel, MarketplaceStats } from '@/api
 import { formatDate } from '@/utils/format'
 import { onboardingPaths } from './home/onboardingArtwork'
 import { modelAuthor } from './home/modelAuthor'
-import PoweredByBadge from './home/PoweredByBadge.vue'
 import { sanitizeUrl } from '@/utils/url'
 import { hasAcceptedLoginAgreement } from '@/utils/loginAgreement'
 import { isGoogleOneTapEligible, isGoogleOneTapOriginSupported } from '@/utils/googleIdentity'
@@ -752,7 +748,7 @@ const appStore = useAppStore()
 
 // Branding reads injected or cached public settings, filtering logo and documentation
 // URLs while retaining explicitly configured title and subtitle overrides, including empty text.
-const siteName = computed(() => appStore.siteName || 'TokenRouter')
+const siteName = computed(() => appStore.siteName || BRAND.name)
 const siteLogo = computed(() =>
   sanitizeUrl(appStore.cachedPublicSettings?.site_logo || appStore.siteLogo || '', {
     allowRelative: true,
