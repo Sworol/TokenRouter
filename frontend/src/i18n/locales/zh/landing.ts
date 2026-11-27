@@ -22,10 +22,43 @@ export default {
       models: '模型',
     },
     // User benefits section
-    heroBadge: '统一接入、智能路由、按量计费',
-    heroTitle: '统一的大模型接口',
-    heroSubtitle: '一个密钥，畅用多个 AI 模型',
-    heroDescription: '无需管理多个订阅提供商，一站式接入 Claude、GPT、Gemini 等主流 AI 服务',
+    heroBadge: '统一入口 · 三档选择 · 模型明示',
+    heroTitle: '一个 API，三档选择，拒绝静默降级',
+    heroSubtitle: '满血、标准、低价分组，同一个密钥按需切换',
+    heroDescription:
+      '按任务选档位。每个分组明示实际模型，用量记录可核对上游模型，不做别名替换和静默降级。',
+    tiers: {
+      eyebrow: '三档透明分组',
+      title: '按任务选择合适档位',
+      subtitle:
+        '每档都是独立分组，拥有自己的模型列表、路由策略和并发限制。任务变化时随时切换，计费以实际运行的模型为准。',
+      cta: '查看模型列表',
+      note: '具体模型与限额以分组说明和 /v1/models 为准；不在分组列表中的模型不会被静默替换。',
+      full: {
+        name: '满血',
+        badge: '旗舰',
+        description: '官方模型直连，适合对质量和稳定性要求最高的生产任务。',
+        point1: '官方模型与完整参数',
+        point2: '高并发与优先路由',
+        point3: '按实际使用的模型计费',
+      },
+      standard: {
+        name: '标准',
+        badge: '均衡',
+        description: '主力模型池，覆盖日常开发、写作与分析。',
+        point1: '主流模型覆盖齐全',
+        point2: '标准并发与稳定路由',
+        point3: '模型列表与倍率明示',
+      },
+      budget: {
+        name: '低价',
+        badge: '经济',
+        description: '便宜模型搭配低并发，适合批处理、实验和成本敏感场景。',
+        point1: '仅路由到列表内的轻量模型',
+        point2: '低并发，不挤占高优先级流量',
+        point3: '无别名替换，按上游模型计费',
+      },
+    },
     tags: {
       subscriptionToApi: '订阅转 API',
       stickySession: '会话保持',

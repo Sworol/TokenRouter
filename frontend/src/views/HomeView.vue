@@ -91,6 +91,72 @@
         {{ t('home.stats.unavailable') }}
       </p>
 
+      <!-- The tier overview states the public model-routing promise before the detailed feature sections. -->
+      <section class="mx-auto mt-20 max-w-6xl">
+        <div class="mx-auto max-w-3xl text-center">
+          <p
+            class="text-xs font-semibold uppercase tracking-[0.2em] text-primary-600 dark:text-primary-400"
+          >
+            {{ t('home.tiers.eyebrow') }}
+          </p>
+          <h2
+            class="mt-3 text-3xl font-bold tracking-tight text-gray-950 dark:text-white sm:text-4xl"
+          >
+            {{ t('home.tiers.title') }}
+          </h2>
+          <p class="mt-4 text-base leading-7 text-gray-600 dark:text-dark-300">
+            {{ t('home.tiers.subtitle') }}
+          </p>
+        </div>
+
+        <div class="mt-10 grid gap-5 lg:grid-cols-3">
+          <article
+            v-for="tier in homeTiers"
+            :key="tier.key"
+            class="flex flex-col rounded-surface border border-gray-200 bg-white p-6 dark:border-dark-800 dark:bg-dark-900"
+          >
+            <div class="flex items-center justify-between gap-3">
+              <h3 class="text-xl font-bold text-gray-950 dark:text-white">{{ tier.name }}</h3>
+              <span
+                class="rounded-full bg-primary-50 px-2.5 py-1 text-xs font-semibold text-primary-700 dark:bg-primary-500/10 dark:text-primary-300"
+              >
+                {{ tier.badge }}
+              </span>
+            </div>
+            <p class="mt-3 text-sm leading-6 text-gray-600 dark:text-dark-300">
+              {{ tier.description }}
+            </p>
+            <ul class="mt-6 flex-1 space-y-3">
+              <li
+                v-for="point in tier.points"
+                :key="point"
+                class="flex gap-2 text-sm leading-6 text-gray-700 dark:text-dark-100"
+              >
+                <Icon
+                  name="check"
+                  size="sm"
+                  :stroke-width="2"
+                  :animate-on-hover="false"
+                  class="mt-1 shrink-0 text-primary-600 dark:text-primary-400"
+                />
+                <span>{{ point }}</span>
+              </li>
+            </ul>
+            <router-link
+              to="/models"
+              class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-primary-600 transition-colors hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
+            >
+              {{ t('home.tiers.cta') }}
+              <Icon name="arrowRight" size="xs" />
+            </router-link>
+          </article>
+        </div>
+
+        <p class="mt-6 text-center text-xs leading-5 text-gray-500 dark:text-dark-400">
+          {{ t('home.tiers.note') }}
+        </p>
+      </section>
+
       <!-- Each link covers its card, and flexible text panels align the links along the bottom when descriptions wrap. -->
       <section class="mx-auto mt-20 grid max-w-7xl gap-5 sm:grid-cols-2 xl:grid-cols-4">
         <article
@@ -770,6 +836,41 @@ const homeHeroSubtitle = computed(() =>
     ? appStore.cachedPublicSettings.site_subtitle || ''
     : t('home.heroDescription'),
 )
+
+// homeTiers lists the three public service levels rendered between the headline
+// statistics and the detailed feature sections. Each entry resolves copy from
+// the shared landing catalog so both languages keep the same model and tier story.
+const homeTiers = computed(() => [
+  {
+    key: 'full',
+    name: t('home.tiers.full.name'),
+    badge: t('home.tiers.full.badge'),
+    description: t('home.tiers.full.description'),
+    points: [t('home.tiers.full.point1'), t('home.tiers.full.point2'), t('home.tiers.full.point3')],
+  },
+  {
+    key: 'standard',
+    name: t('home.tiers.standard.name'),
+    badge: t('home.tiers.standard.badge'),
+    description: t('home.tiers.standard.description'),
+    points: [
+      t('home.tiers.standard.point1'),
+      t('home.tiers.standard.point2'),
+      t('home.tiers.standard.point3'),
+    ],
+  },
+  {
+    key: 'budget',
+    name: t('home.tiers.budget.name'),
+    badge: t('home.tiers.budget.badge'),
+    description: t('home.tiers.budget.description'),
+    points: [
+      t('home.tiers.budget.point1'),
+      t('home.tiers.budget.point2'),
+      t('home.tiers.budget.point3'),
+    ],
+  },
+])
 
 // Custom content uses the existing HTTP(S)-prefix decision to choose an iframe;
 // every other nonempty value follows the administrator-configured HTML rendering path.

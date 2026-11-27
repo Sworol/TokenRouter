@@ -22,11 +22,45 @@ export default {
       models: 'Models',
     },
     // User-focused value proposition
-    heroBadge: 'Unified access, smart routing, usage-based billing',
-    heroTitle: 'The unified interface for AI models',
-    heroSubtitle: 'One Key, All AI Models',
+    heroBadge: 'One endpoint · Three transparent tiers · Real models',
+    heroTitle: 'One API, three tiers, no silent substitution',
+    heroSubtitle: 'Full-power, standard, and economy groups behind one key',
     heroDescription:
-      'No need to manage multiple subscriptions. Access Claude, GPT, Gemini and more with a single API key',
+      'Pick the tier that matches the job. Every group lists the models it actually routes to, and usage records show the upstream model — no aliases, no quiet downgrades.',
+    tiers: {
+      eyebrow: 'Three transparent tiers',
+      title: 'Choose the tier that fits the job',
+      subtitle:
+        'Each tier is a separate group with its own model list, routing policy, and limits. Switch when the workload changes; billing follows the model that actually ran.',
+      cta: 'Browse models',
+      note: 'Model availability and limits follow the group description and /v1/models. Models outside a group are never substituted silently.',
+      full: {
+        name: 'Full Power',
+        badge: 'Flagship',
+        description:
+          'Direct access to official models for production work that needs maximum quality.',
+        point1: 'Official models with the full parameter set',
+        point2: 'High concurrency and priority routing',
+        point3: 'Billed by the actual model used',
+      },
+      standard: {
+        name: 'Standard',
+        badge: 'Balanced',
+        description: 'The main model pool for everyday development, writing, and analysis.',
+        point1: 'Broad coverage of mainstream models',
+        point2: 'Standard concurrency and stable routing',
+        point3: 'Explicit model list and multipliers',
+      },
+      budget: {
+        name: 'Economy',
+        badge: 'Low cost',
+        description:
+          'Cheaper models with lower concurrency for batch jobs, experiments, and cost-sensitive work.',
+        point1: 'Routes only to the listed lightweight models',
+        point2: 'Lower concurrency without crowding priority traffic',
+        point3: 'No alias substitution; billed by the upstream model',
+      },
+    },
     tags: {
       subscriptionToApi: 'Subscription to API',
       stickySession: 'Session Persistence',
